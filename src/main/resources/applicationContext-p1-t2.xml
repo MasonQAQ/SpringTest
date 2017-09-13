@@ -8,8 +8,6 @@
 
     <bean id="sgtPeppers" class="part1.test2.SgtPeppers"></bean>
 
-
-
     <!--通过constructor-arg完成参数注入-->
     <!--<bean id="cdPlayer" class="part1.test2.CDPlayer">-->
         <!--<constructor-arg ref="sgtPeppers"/>-->
@@ -22,7 +20,7 @@
 
     <!--通过c命名空间完成构造器参数注入，-ref前面可以为_加上参数的位置-->
     <bean id="cdPlayer" class="part1.test2.CDPlayer"
-          c:_0-ref="blankDisc">
+          c:_0-ref="whiteDisc">
     </bean>
 
     <!--使用construct-arg进行构造参数的注入-->
@@ -36,9 +34,44 @@
     <!--</bean>-->
 
     <!--使用c:参数索引编号注入-->
-    <bean id="blankDisc" class="part1.test2.BlankDisc" c:_0="Pro. the random name" c:_1="Yang">
+    <!--<bean id="blankDisc" class="part1.test2.BlankDisc"-->
+          <!--c:_0="Pro. the random name"-->
+          <!--c:_1="Yang">-->
+    <!--</bean>-->
+
+    <!--使用属性注入-->
+    <bean id="blankDisc" class="part1.test2.BlankDisc">
+        <property name="artist" value="Yang"/>
+        <property name="title" value="Pro. blank test!" />
     </bean>
 
+    <!--注入list-->
+    <!--<bean id="whiteDisc" class="part1.test2.WhiteDisc">-->
+        <!--<constructor-arg value="White disc title"/>-->
+        <!--<constructor-arg value="Yang"/>-->
+        <!--<constructor-arg>-->
+            <!--<list>-->
+                <!--<value>001</value>-->
+                <!--<value>002</value>-->
+                <!--<value>003</value>-->
+                <!--<value>004</value>-->
+            <!--</list>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
+
+    <!-- 通过属性进行注入,不能和构造器注入同时使用 -->
+    <bean id="whiteDisc" class="part1.test2.WhiteDisc">
+        <property name="title" value="White Disc Song!"/>
+        <property name="artist" value="Yang" />
+        <property name="tracks">
+            <list>
+                <value>001</value>
+                <value>002</value>
+                <value>003</value>
+                <value>004</value>
+            </list>
+        </property>
+    </bean>
 
 
 </beans>
