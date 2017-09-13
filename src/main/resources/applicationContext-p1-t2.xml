@@ -1,9 +1,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/c" xmlns:c="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
 
-    <context:component-scan base-package="part1.test2" />
+    <!--<context:component-scan base-package="part1.test2" />-->
 
+    <bean id="sgtPeppers" class="part1.test2.SgtPeppers"></bean>
+
+    <!--通过constructor-arg完成参数注入-->
+    <!--<bean id="cdPlayer" class="part1.test2.CDPlayer">-->
+        <!--<constructor-arg ref="sgtPeppers"/>-->
+    <!--</bean>-->
+
+    <!--通过c命名空间完成构造器参数注入，-ref前面跟的是参数名-->
+    <!--<bean id="cdPlayer" class="part1.test2.CDPlayer"-->
+          <!--c:compactDisc-ref="sgtPeppers">-->
+    <!--</bean>-->
+
+    <!--<bean id="cdPlayer" class="part1.test2.CDPlayer"-->
+          <!--c:_0-ref="sgtPeppers">-->
+    <!--</bean>-->
 </beans>

@@ -14,8 +14,8 @@ import static org.junit.Assert.assertNotNull;
  * Created by yangyue on 2017/9/12.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations = "classpath:applicationContext-p1-t2.xml")
-@ContextConfiguration(classes = CDPlayerConfig.class)
+@ContextConfiguration(locations = "classpath:applicationContext-p1-t2.xml")
+//@ContextConfiguration(classes = CDPlayerConfig.class)
 public class App {
 
     @Autowired
@@ -35,4 +35,6 @@ public class App {
         System.out.println(player);
         player.play();
     }
+
+
 }
