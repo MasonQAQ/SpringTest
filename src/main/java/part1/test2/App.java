@@ -19,7 +19,7 @@ import static org.junit.Assert.assertNotNull;
 public class App {
 
     @Autowired
-    private CompactDisc cd;
+    private BlankDisc cd;
 
     @Autowired
     private MediaPlayer player;

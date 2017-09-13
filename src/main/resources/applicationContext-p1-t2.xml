@@ -1,12 +1,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/c" xmlns:c="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
 
     <!--<context:component-scan base-package="part1.test2" />-->
 
     <bean id="sgtPeppers" class="part1.test2.SgtPeppers"></bean>
+
+
 
     <!--通过constructor-arg完成参数注入-->
     <!--<bean id="cdPlayer" class="part1.test2.CDPlayer">-->
@@ -18,7 +20,25 @@
           <!--c:compactDisc-ref="sgtPeppers">-->
     <!--</bean>-->
 
-    <!--<bean id="cdPlayer" class="part1.test2.CDPlayer"-->
-          <!--c:_0-ref="sgtPeppers">-->
+    <!--通过c命名空间完成构造器参数注入，-ref前面可以为_加上参数的位置-->
+    <bean id="cdPlayer" class="part1.test2.CDPlayer"
+          c:_0-ref="blankDisc">
+    </bean>
+
+    <!--使用construct-arg进行构造参数的注入-->
+    <!--<bean id="blankDisc" class="part1.test2.BlankDisc">-->
+    <!--<constructor-arg value="Pro. the random name"/>-->
+    <!--<constructor-arg value="Yang"/>-->
     <!--</bean>-->
+
+    <!--使用c:参数名形式注入-->
+    <!--<bean id="blankDisc" class="part1.test2.BlankDisc" c:title="Pro. the random name" c:artist="Yang">-->
+    <!--</bean>-->
+
+    <!--使用c:参数索引编号注入-->
+    <bean id="blankDisc" class="part1.test2.BlankDisc" c:_0="Pro. the random name" c:_1="Yang">
+    </bean>
+
+
+
 </beans>

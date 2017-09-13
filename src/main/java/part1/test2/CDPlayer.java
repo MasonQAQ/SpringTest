@@ -48,8 +48,10 @@ public class CDPlayer implements MediaPlayer {
 
     @Override
     public String toString() {
-        return "CDPlayer{" +
-                "compactDisc=" + compactDisc +
-                '}';
+        final StringBuilder sb = new StringBuilder("{");
+        sb.append("\"compactDisc\":")
+                .append(compactDisc);
+        sb.append('}');
+        return sb.toString();
     }
 }

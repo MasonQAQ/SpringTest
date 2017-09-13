@@ -8,12 +8,12 @@ import part1.test2.CompactDisc;
 import part1.test2.SgtPeppers;
 
 /**
- * 扫描同一个包及这个包下所有的子包
+ *
  * Created by yangyue on 2017/9/12.
  */
 @Configuration
-//@ComponentScan(basePackageClasses = part1.test2.App.class) //类型安全的
-//@ComponentScan(basePackages = "part1.test2")
+//@ComponentScan(basePackageClasses = part1.test2.App.class) //类型安全的，扫描该类所在包及这个包下所有的子包
+//@ComponentScan(basePackages = "part1.test2") // 扫描同一个包及这个包下所有的子包
 public class CDPlayerConfig {
 
     @Bean
